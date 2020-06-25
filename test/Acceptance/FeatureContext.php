@@ -36,7 +36,11 @@ final class FeatureContext implements Context
      */
     public function theOrganizerSchedulesANewTrainingCalledFor(string $title, string $date): void
     {
-        throw new PendingException();
+        $this->container->createTraining()->create(
+            $this->theOrganizer()->asString(),
+            $title,
+            $date
+        );
     }
 
     /**
